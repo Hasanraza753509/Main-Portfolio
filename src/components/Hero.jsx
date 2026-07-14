@@ -60,7 +60,7 @@ export default function Hero() {
       id="top"
       className="relative bg-sand overflow-hidden min-h-screen flex items-center"
     >
-    
+
       <div className="absolute inset-y-0 right-0 w-full sm:w-[55%] md:w-[45%] h-[45vh] sm:h-full">
         <motion.img
           src={heroPhoto}
@@ -77,7 +77,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto w-full px-6 pt-[42vh] sm:pt-0">
         <div className="sm:max-w-[52%] md:max-w-[55%] pb-16 sm:pb-0">
 
-        
+
           <motion.h1
             variants={nameVariants}
             initial="hidden"
@@ -128,9 +128,9 @@ export default function Hero() {
             <br />
 
 
-<span className="text-[#7B6A59]">
-  Delhi Technological University
-</span>
+            <span className="text-[#7B6A59]">
+              Delhi Technological University
+            </span>
           </motion.p>
 
           <div className="mt-10 flex gap-8 sm:gap-12">

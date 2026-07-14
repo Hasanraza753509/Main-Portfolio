@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
 
-/**
- * Small, subtle animated arrow pointing toward the contact links.
- * No click handlers, no size drama — just a gentle nudge.
- */
 export default function Arrow() {
   return (
     <motion.div

@@ -20,9 +20,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-cream/90 backdrop-blur shadow-sm" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? "bg-cream/90 backdrop-blur shadow-sm" : "bg-transparent"
+        }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="#top" className="font-display text-xl text-ink">

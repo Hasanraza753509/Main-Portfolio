@@ -46,7 +46,7 @@ const groups = [
 export default function Skills() {
   return (
     <section id="skills" className="relative bg-mocha py-24 overflow-hidden">
-      {/* decorative squiggle background */}
+
       <svg
         className="absolute inset-0 w-full h-full opacity-10"
         preserveAspectRatio="xMidYMid slice"
@@ -80,11 +80,11 @@ export default function Skills() {
               <h3 className="font-body text-xl text-cream font-semibold mb-4">
                 {g.title}
               </h3>
-<ul className="flex flex-wrap gap-3">
-  {g.items.map((item) => (
-    <li
-      key={item}
-      className="
+              <ul className="flex flex-wrap gap-3">
+                {g.items.map((item) => (
+                  <li
+                    key={item}
+                    className="
         list-none
         px-4
         py-2
@@ -107,11 +107,11 @@ export default function Skills() {
         hover:shadow-cream/20
         cursor-pointer
       "
-    >
-      {item}
-    </li>
-  ))}
-</ul>
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

@@ -39,9 +39,9 @@ export default function Projects() {
     <section id="projects" className="bg-cream py-24">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-[auto_1fr] gap-10 md:gap-16">
         <div className="md:[writing-mode:vertical-rl] rflex md:items-center">
-         <h2 className="font-serif text-4xl text-ink leading-tight"><b>
-          Industry Projects &amp; Other Works
-        </b>
+          <h2 className="font-serif text-4xl text-ink leading-tight"><b>
+            Industry Projects &amp; Other Works
+          </b>
           </h2>
         </div>
 

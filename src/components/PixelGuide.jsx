@@ -30,23 +30,11 @@ const STAGE = {
   WALK_OUT: "walkOut",
 };
 
-// Stages during which the guide is on-screen; losing view-visibility during
-// any of these triggers the exit (wave bye -> walk out).
 const PRESENT_STAGES = [STAGE.WALK_IN, STAGE.WAVE_HELLO, STAGE.BUBBLE, STAGE.IDLE];
 
-// How long the guide lingers on screen (idle, message showing) before it
-// automatically leaves and walks back in again, for as long as Contact is in view.
 const IDLE_LINGER_MS = 4500;
-// Pause between walking fully offscreen and starting the next walk-in.
 const REENTRY_DELAY_MS = 500;
 
-/**
- * Loops continuously while Contact is in view:
- * hidden -> walkIn -> waveHello -> bubble -> idle
- * -> waveBye -> walkOut -> hidden -> (short pause) -> walkIn -> ...
- * Also exits early (waveBye -> walkOut -> hidden) if the user scrolls away,
- * and resumes the same loop when they scroll back.
- */
 export default function PixelGuide() {
   const { ref, inView } = useInView({ threshold: 0.35 });
 
@@ -54,39 +42,31 @@ export default function PixelGuide() {
   const [blinking, setBlinking] = useState(false);
   const blinkTimeoutRef = useRef(null);
 
-  // Exit early if the user scrolls away mid-sequence.
   useEffect(() => {
     if (!inView && PRESENT_STAGES.includes(stage)) {
       setStage(STAGE.WAVE_BYE);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
 
-  // Whenever we land back on "hidden" while still in view, walk back in
-  // after a short pause. Covers both the very first entrance and every
-  // subsequent loop.
   useEffect(() => {
     if (stage !== STAGE.HIDDEN || !inView) return;
     const t = setTimeout(() => setStage(STAGE.WALK_IN), REENTRY_DELAY_MS);
     return () => clearTimeout(t);
   }, [stage, inView]);
 
-  // waveHello -> bubble (single wave frame; the wave motion itself is a CSS wag below)
+
   useEffect(() => {
     if (stage !== STAGE.WAVE_HELLO) return;
     const t = setTimeout(() => setStage(STAGE.BUBBLE), 900);
     return () => clearTimeout(t);
   }, [stage]);
 
-  // idle -> waveBye, automatically, so the guide leaves and loops back in
-  // instead of standing there forever.
   useEffect(() => {
     if (stage !== STAGE.IDLE) return;
     const t = setTimeout(() => setStage(STAGE.WAVE_BYE), IDLE_LINGER_MS);
     return () => clearTimeout(t);
   }, [stage]);
 
-  // waveBye -> walkOut
   useEffect(() => {
     if (stage !== STAGE.WAVE_BYE) return;
     const t = setTimeout(() => setStage(STAGE.WALK_OUT), 700);
@@ -97,7 +77,6 @@ export default function PixelGuide() {
     setStage((s) => (s === STAGE.BUBBLE ? STAGE.IDLE : s));
   }, []);
 
-  // Blink once every 8-12s, only while fully idle.
   useEffect(() => {
     if (stage !== STAGE.IDLE) return;
 
