@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 const MESSAGE =
-  "👋 Hi! I'm Hasan. Open to internships, research collaborations, and exciting projects. Let's build something meaningful together! 🚀";
+  " Hi! I'm Hasan. Open to internships, research collaborations, and exciting projects. Let's build something meaningful together!";
 
 /**
  * Bubble scales 0 -> 1, then types MESSAGE once and stays (no delete, no loop).
