@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import useSpriteAnimation from "../hooks/useSpriteAnimation";
 import SpeechBubble from "./SpeechBubble";
-import Arrow from "./Arrow";
 
 import frame4 from "../assets/sprite/frames/frame4.png";
 import frame5 from "../assets/sprite/frames/frame5.png";
@@ -183,7 +182,6 @@ export default function PixelGuide() {
           }}
         />
 
-        {stage === STAGE.IDLE && <Arrow />}
       </motion.div>
     </div>
   );
