@@ -58,10 +58,9 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative bg-sand overflow-hidden min-h-screen flex items-center"
-    >
+      className="relative bg-[#DEC6A5] overflow-hidden min-h-screen flex items-center pt-28">
 
-      <div className="absolute inset-y-0 right-0 w-full sm:w-[55%] md:w-[45%] h-[45vh] sm:h-full">
+      <div className="absolute inset-y-0 right-0 w-full sm:w-[55%] md:w-[50%] h-[45vh] sm:h-full">
         <motion.img
           src={heroPhoto}
           alt="Portrait of Hasan Raza"

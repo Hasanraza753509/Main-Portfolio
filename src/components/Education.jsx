@@ -1,3 +1,10 @@
+import { motion } from "framer-motion";
+
+import pinkSplash from "../assets/Pink-watersplash.png";
+import orangeSplash from "../assets/Orange-watersplash.png";
+
+
+
 const entries = [
   {
     title: "Bachelors of Technology in Computer Science Engineering",
@@ -22,9 +29,68 @@ const pair = [
 
 export default function Education() {
   return (
-    <section id="education" className="bg-white py-24 relative overflow-hidden">
+    <section
+      id="education"
+      className="relative overflow-hidden bg-[#F6F0E6] py-24"
+    >
+
+      {/* ================= PAPER GRAIN ================= */}
+
+<div
+  className="absolute inset-0 opacity-[0.025] pointer-events-none"
+  style={{
+    backgroundImage:
+      "radial-gradient(#000 0.8px, transparent 0.8px)",
+    backgroundSize: "18px 18px",
+  }}
+/>
+
+{/* ================= PINK SPLASH ================= */}
+
+<motion.img
+  src={pinkSplash}
+  alt=""
+  initial={{ opacity: 0, x: -80 }}
+  whileInView={{ opacity: 0.45, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1.2 }}
+  style={{ scaleX: -1 }}
+  className="
+    absolute
+    -top-40
+    -left-44
+    w-[900px]
+    -rotate-12
+    pointer-events-none
+    select-none
+    z-0
+  "
+/>
+
+{/* ================= ORANGE SPLASH ================= */}
+
+<motion.img
+  src={orangeSplash}
+  alt=""
+  initial={{ opacity: 0, x: 80 }}
+  whileInView={{ opacity: 0.42, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1.2 }}
+  style={{ scaleX: -1 }}
+  className="
+    absolute
+    -bottom-40
+    -right-48
+    w-[850px]
+    rotate-[18deg]
+    pointer-events-none
+    select-none
+    z-0
+  "
+/>
+
       <svg
-        className="absolute -left-20 top-0 w-[600px] h-[600px] opacity-[0.04]"
+       className="absolute -left-20 top-0 w-[600px] h-[600px] opacity-[0.02] z-0"
         viewBox="0 0 400 400"
         fill="none"
       >
@@ -38,7 +104,7 @@ export default function Education() {
         </g>
       </svg>
 
-      <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-[1fr_2fr] gap-12">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-[1fr_2fr] gap-12">
         <h2 className="font-serif text-4xl text-ink leading-tight">
           Education, Certification &amp; Other Works
         </h2>
